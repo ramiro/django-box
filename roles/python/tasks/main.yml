@@ -5,7 +5,7 @@
 - name: add snake repo signing key
   become: yes
   apt_key: id=6A755776
-           url=http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xF23C5A6CF4759775
+           url=http://keyserver.ubuntu.com:11371/pks/lookup?op=get&search=0xBA6932366A755776
            state=present
 
 - name: add snake repository
