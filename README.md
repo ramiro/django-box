@@ -25,6 +25,16 @@ First of all, you need to install the latest versions of
 [VirtualBox 5.1.14](https://www.virtualbox.org/wiki/Downloads) on your host
 machine.
 
+If you use Linux, you'll need to ensure proper support for NFS installed so the
+Vagrant shared folders feature works. On Debian/ubuntu systems this can be
+achieved with:
+
+    $ sudo apt-get install nfs-kernel-server
+
+On Fedora/CentOS systems you'll need to execute something like:
+
+    $ sudo dnf install nfs-utils && sudo systemctl enable nfs-server
+
 If you use a version of VirtualBox that isn't 5.1.6 you may run into problems
 creating the NFS mount. You can either upgrade to VirtualBox 5.1.6, or you can
 try to install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
