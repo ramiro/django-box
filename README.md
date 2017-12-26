@@ -36,14 +36,14 @@ On Fedora/CentOS systems you'll need to execute something like:
     $ sudo dnf install nfs-utils && sudo systemctl enable nfs-server
 
 If you use a version of VirtualBox that isn't 5.1.6 you may run into problems
-creating the NFS mount. You can either upgrade to VirtualBox 5.1.6, or you can
-try to install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
-plugin, which will attempt to install your local version of GuestAdditions into
-the VM.
+creating the NFS mount. You can either
 
-```
-vagrant plugin install vagrant-vbguest
-```
+* Upgrade to VirtualBox 5.1.6
+* Or you can try to install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
+  plugin, which will attempt to install your local version of GuestAdditions
+  into the VM:
+
+      vagrant plugin install vagrant-vbguest
 
 Booting the VM
 --------------
