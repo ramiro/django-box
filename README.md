@@ -167,6 +167,39 @@ like so:
 
 The test suite will sometimes hang when running selenium tests in parallel mode.
 
+Troubleshooting
+---------------
+
+### Strange errors when running tests
+
+The `tox.ini` configuration file shipped with the Django source code directs
+tox to create the virtual environments it uses for every test matrix
+configuration below a `.tox` directory it creates on the Django source code top
+directory.
+
+django-box reuses Django's tox configuration, but executes tox inside the VM,
+so that `.tox/` tree gets persisted between test runs and shared between a tox
+copy you could use on the host and the django-box tox.
+
+So it might happen than when faced with a mismatch between the version of Python
+used to create a virtual environment and the version currently in use to run
+the tests (e.g. Python micro version gets upgraded from 3.6.3 to 3.6.4 and this
+upgrade reaches your Linux host and/or the repositories used by the django-box
+VM), weird errors happen.
+
+You can solve this by removing the virtualenv tree, e.g.:
+
+    (host) $ rm -rf <Django souce code top dir>/.tox/py36-mysql
+    (vm) $ rm -rf /django/.tox/py36-mysql
+
+or more drastically, removing the `.tox` directory:
+
+    (host) $ rm -rf <Django souce code top dir>/.tox
+    (vm) $ rm -rf /django/.tox
+
+This way the next time you run the tests, tox will rebuild the virtual
+environment anew with the correct version of Python.
+
 Building the documentation
 --------------------------
 
