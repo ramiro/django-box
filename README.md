@@ -21,9 +21,9 @@ Preparation
 ### Software installation
 
 First of all, you need to install the latest versions of
-[Vagrant 1.9.1](https://www.vagrantup.com/downloads.html) and
-[VirtualBox 5.1.14](https://www.virtualbox.org/wiki/Downloads) on your host
-machine.
+[Vagrant](https://www.vagrantup.com/downloads.html) (at version 2.0.1 as of
+now) and [VirtualBox](https://www.virtualbox.org/wiki/Downloads) (currently at
+version 5.2.4) on your host machine.
 
 If you use Linux, you'll need to ensure proper support for NFS installed so the
 Vagrant shared folders feature works. On Debian/ubuntu systems this can be
@@ -38,7 +38,7 @@ On Fedora/CentOS systems you'll need to execute something like:
 If you use a version of VirtualBox that isn't 5.1.6 you may run into problems
 creating the NFS mount. You can either
 
-* Upgrade to VirtualBox 5.1.6
+* Upgrade to VirtualBox 5.2.4
 * Or you can try to install the [vagrant-vbguest](https://github.com/dotless-de/vagrant-vbguest)
   plugin, which will attempt to install your local version of GuestAdditions
   into the VM:
